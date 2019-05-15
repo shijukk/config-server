@@ -1,0 +1,26 @@
+server:
+  port: 9002
+
+spring:
+  application:
+    name: config-server
+  profiles:
+    active:    - dev
+  cloud:
+    config:    
+      enabled: true
+      server:
+        git: 
+          uri: https://github.com/shijukk/configurations
+          refresh-rate: 600
+          default-label: master
+          clone-on-start: true
+
+eureka:
+  client:
+    registerWithEureka: true
+    fetch-registry: true
+    service-url:      
+      defaultZone: http://localhost:9003/eureka 
+
+
